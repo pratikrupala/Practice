@@ -1,3 +1,7 @@
+/*
+ *Print x,y,z in ascending order
+ *
+ * */
 #include <stdio.h>
 
 #define MIN(a,b) (a==b)?a:(a<b)?a:b
