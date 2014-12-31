@@ -1,3 +1,7 @@
+/*
+ *Horner's Rule Implemantaion using
+ *Iterative and recursive Method
+ * */
 #include <stdio.h>
 #include <stdlib.h>
 
