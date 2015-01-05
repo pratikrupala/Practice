@@ -1,54 +1,55 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-double ai(double m,double n)
+int akermann(int a, int b)
 {
-int stack[100000];
-stack[0] = m;
-stack[1] = n;
+	int list[100000];
+	int i = 1;
 
-int t = 1;
+	list[0] = a;
+	list[1] = b;
 
-do
-{
-double c = c + 1;
-if (stack[t - 1] == 0)
-{
-m = 0;
-t = t - 1;
-stack[t] = stack[t + 1] + 1;
-}
-else if (stack[t] == 0)
-{
-n = 0;
-stack[t] = 1;
-stack[t - 1] = stack[t - 1] - 1;
-}
-else
-{
-stack[t + 1] = stack[t] - 1;
-stack[t] = stack[t - 1];
-stack[t - 1] = stack[t - 1] - 1;
-t = t + 1;
-}
-}
-while(t != 0);
-return stack[0];
-
+	do {
+		if(list[i-1] == 0) {
+		 	i -= 1;
+			list[i] = list[i+1] + 1;
+		}
+		else if(list[i] == 0) {
+			list[i] = 1;
+			list[i-1] = list[i-1] - 1;
+		}
+		else {
+			list[i+1] = list[i] - 1;
+			list[i] = list[i-1];
+			list[i-1] = list[i-1] - 1;
+			i += 1;
+		}
+	} while(i != 0);
+	
+	return list[0];
 }
 
 int main(void)
 {
 	int m = 0, n = 0, r = 0;
 
-	printf("Please enter the value of m:");
+	printf("Enter the value of m:");
 	scanf("%d", &m);
 
-	printf("Please enter the value of n:");
-        scanf("%d", &n);
+	if(m < 0) {
+		printf("You have entered wrong value of m.\n");
+		exit(EXIT_FAILURE);
+	}
 
-	printf("You have entered m: %d and n: %d\n", m, n);
+	printf("Enter the value of n:");
+	scanf("%d", &n);
 
-	r = ai(m, n);
+	if(n < 0) {
+		printf("You have entered wrong value of n.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	r = akermann(m, n);
 
 	printf("Result of Akermann's function: %d\n", r);
 
