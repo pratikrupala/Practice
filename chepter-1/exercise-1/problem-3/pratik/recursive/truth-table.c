@@ -11,9 +11,7 @@ void table(int n, char *s, int i)
 	char z = '0', o = '1';
 
 	if(n == 0) {
-		for(j = n; j <= i; j++) {
-			printf("%c", *(s + j));
-		}
+		printf("%s", s);
 		printf("\n");
 		return;
 	}
