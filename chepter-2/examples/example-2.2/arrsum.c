@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 10
-
 void printarr(int *list, int size)
 {
 	int i;
@@ -14,14 +12,19 @@ void printarr(int *list, int size)
 
 int main(void)
 {
-	int i;
-	int input[MAX_SIZE];
+	int i, n = 0;
+	int *input;
 
-	for (i = 0; i < MAX_SIZE; i++)
-		input[i] = i;
+	printf("Enter the size of size of array:");
+	scanf("%d", &n);
 
-	printarr(input, MAX_SIZE);
+	input = malloc(n * sizeof(int));
 
-	exit(EXIT_FAILURE);
+	for (i = 0; i < n; i++)
+		*(input+i) = i;
+
+	printarr(input, n);
+
+	exit(EXIT_SUCCESS);
 }
 
