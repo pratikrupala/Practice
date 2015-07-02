@@ -16,7 +16,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("Enter the number of columns of two dimentioanl array:");
+	printf("Enter the number of columns of two dimentional array:");
 	scanf("%d", &c);
 
 	if (c <= 0) {
