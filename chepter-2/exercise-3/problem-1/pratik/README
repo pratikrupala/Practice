@@ -1,0 +1,38 @@
+Problem:
+
+Consider the type definition:
+
+	typedef struct {
+		int degree;
+		int capacity;
+		float *coef;
+		} dpolynomial;
+
+where coef is the dynamically allocated one-dimentional array coef[0:capacity-1]. Compare this representation for polynomials with the one using the type polynomial.
+
+Solution:
+
+[1] Comparision with below polynomial representations:
+
+First representation:
+
+	#define MAX_DEGREE 101
+	
+		typedef struct {
+			int degree;
+			floal coef[MAX_DEGREE];
+			} polynomial;
+Second representation:
+
+	#define MAX_TERMS 101
+
+		typedef struct {
+			int expon;
+			float coef;
+			} polynomial;
+		polynomial terms[MAX_TERMS];
+
+Description:
+	For the above given representations, regardless of user input the coef arrray will have the length of 101. In this representation, space will be wasted if user gives polynomial with very few terms as input.
+	For the representation of our current problem, length of coef array can be limited capacity parameter and that parameter can be taken from user as input and space wasted discussed above can be eliminated.
+	The problem could be determination of length of resultant polynomial when polinomial addtion or any other operation is performed. Possible solution for this could be creation of separate polynomial and length can be calculated by the program beforehand operation is performed.
