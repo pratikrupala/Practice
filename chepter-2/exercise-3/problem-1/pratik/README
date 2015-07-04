@@ -22,17 +22,21 @@ First representation:
 			int degree;
 			floal coef[MAX_DEGREE];
 			} polynomial;
-Second representation:
-
-	#define MAX_TERMS 101
-
-		typedef struct {
-			int expon;
-			float coef;
-			} polynomial;
-		polynomial terms[MAX_TERMS];
 
 Description:
 	For the above given representations, regardless of user input the coef arrray will have the length of 101. In this representation, space will be wasted if user gives polynomial with very few terms as input.
-	For the representation of our current problem, length of coef array can be limited capacity parameter and that parameter can be taken from user as input and space wasted discussed above can be eliminated.
-	The problem could be determination of length of resultant polynomial when polinomial addtion or any other operation is performed. Possible solution for this could be creation of separate polynomial and length can be calculated by the program beforehand operation is performed.
+	For the representation of our current problem, length of coef array can be limited capacity parameter and that parameter can be taken from user as input of max exponent in the polynomial. So if user gives 10 as max exponent then array for coef will be allocated only for 10 items instead of MAX_DEGREE. So space consumption will be reduced. But if polynomial does not have few terms in between 0 and user input(i.e., 10) then still some space will be wasted but it would be less then the above representation.
+
+
+Second representation:
+
+        #define MAX_TERMS 101
+
+                typedef struct {
+                        int expon;
+                        float coef;
+                        } polynomial;
+                polynomial terms[MAX_TERMS];
+
+Description:
+	As discussed above, in representation of current problem, some  space will still be wasted. But in the representation shown above, space is not wasted in between the first and last term. but in above shown reprsenation, space will still be wasted if polynomial given by user as input has very few terms as 101 items are allocated regardless of user input.
