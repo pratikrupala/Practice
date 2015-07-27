@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <stdio.h>
 
 int sort_arr(int arr[], int n)
 {
@@ -22,4 +23,13 @@ void swap(int *x, int *y)
 	temp = *x;
 	*x = *y;
 	*y = temp;
+}
+void genrate_rand_num(int arr[], int n)
+{
+	int i;
+	printf("Unsorted Array\n");
+	for (i=0; i < n; i++) {
+        	arr[i] = rand() % 100;
+        	printf("%d\t", arr[i]);
+	}
 }

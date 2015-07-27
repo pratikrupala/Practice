@@ -14,11 +14,9 @@ int main()
 		printf("Input should be in range of 1 to 999");
 		return FAILED;
 	}
-	printf("Unsorted Array\n");
-	for (i=0; i < n; i++) {
-		arr[i] = rand() % 100;
-		printf("%d\t", arr[i]);
-	}
+
+	genrate_rand_num(arr, n);	
+
 	printf("\n");
 	status = sort_arr(arr, n);
 	printf("Sorted Array\n");

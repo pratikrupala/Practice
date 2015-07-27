@@ -4,3 +4,4 @@
 
 int sort(int arr[], int n);
 void swap(int *x, int *y);
+void genrate_rand_num(int arr[], int n);
