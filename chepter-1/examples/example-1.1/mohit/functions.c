@@ -85,3 +85,21 @@ int binary_search_recursive(int arr[], int n, int num, int left, int right)
 	}
 	return ret_val;	
 }
+
+void permutaion(char arr[], int a, int n)
+{
+	char temp;
+	int i,j;	
+	if (a == n) {
+		for (i = 0; i<=n; i++) {
+			printf("%c",arr[i]);
+		}
+		printf("\t");
+	}
+	
+	for (j=a; j<=n; j++) {
+		SWAP(arr[a], arr[j], temp);
+		permutaion(arr, a+1, n);
+		SWAP(arr[a], arr[j], temp);
+	}
+}
