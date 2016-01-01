@@ -26,7 +26,7 @@ int main(void)
 
 	x = malloc(r * sizeof(*x));
 
-	for (i = 0; i < c; i++)
+	for (i = 0; i < r; i++)
 		*(x+i) = calloc(c, sizeof(int));
 
 	for (i = 0; i < r; i++) {
