@@ -12,7 +12,7 @@ int main()
 	printf("Input the number of column\n");
 	scanf("%d",&column);
 	twodarr = MALLOC(int **, row * sizeof(int *)); 
-	for(i = 0; i < column; i++){
+	for(i = 0; i < row; i++){
 		*(twodarr + i) = CALLOC(int *, column, sizeof(int));
 	}
 	printf("Elements are\n");
