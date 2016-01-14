@@ -7,7 +7,7 @@
 int main()
 {
 	int **a, **b, **c, row, i, j, k = 0;
-	printf("Input the size of symatrical matrix"\n);
+	printf("Input the size of symatrical matrix\n");
 	scanf("%d", &row);
 	a = MALLOC(int **, row * sizeof(int *));
 	b = MALLOC(int **, row * sizeof(int *));
@@ -24,15 +24,31 @@ int main()
 		}
 	}
 	mul(a, b, c, row);
+	print_arr(a, row);
+	print_arr(b, row);
+	print_arr(c, row);
 	return 0;
 }
 mul(int **a, int **b, int **c, int row){
 	int i, j, k = 0, sum = 0;
 	for(i = 0; i < row; i++ ){
-		sum = 0;
-		for(j = 0, k = 0; j < row, k < row; j++, k++){
-			sum = sum + ((*(*(a + i) + j)) * *(*(b + k) + i));
+		for(j = 0; j < row; j++) {
+			sum = 0;
+			for(k = 0; k < row; k++){
+				sum = sum + (*(*(a + i) + k) * *(*(b + k) + j));
+			}
+			*(*(c + i) + j) = sum;
 		}
-		*(*(c ))
 	}
+}
+print_arr(int **arr, int row)
+{
+	int i, j;
+	for (i = 0; i < row; i++){
+		for(j = 0; j < row; j++){
+			printf("%d\t", *(*(arr + i) + j));
+		}
+		printf("\n");
+	}
+	printf("\n");
 }
