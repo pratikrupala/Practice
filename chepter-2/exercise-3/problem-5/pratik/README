@@ -1,0 +1,4 @@
+Problem statement:
+
+Let A(x) = x^2n + x^2n-2 + ... + x^2 + x^0 and B(x) = x^2n+1 + x^2n-1 + ... + x^3 + x.
+For these polynomials, determine the exact number of times each statement of padd is executed.

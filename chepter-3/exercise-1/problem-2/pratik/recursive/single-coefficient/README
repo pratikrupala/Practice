@@ -1,0 +1,2 @@
+Compilation command:
+gcc -g binomial.c factorial.c -o binomial

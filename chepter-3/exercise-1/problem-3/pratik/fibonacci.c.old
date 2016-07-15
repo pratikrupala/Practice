@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int a = 0;
+int b = 1;
+
+int fibonacci(int n)
+{
+	int t = a;
+	a = b;
+	b = t + b;
+	if(n > 1) {
+		return fibonacci(n-1);
+	}
+	return t;
+}
+
+int main(void)
+{
+	int n = 0;
+	int result = 0;
+
+	printf("Enter a limiting number:");
+	scanf("%d", &n);
+
+	result = fibonacci(n);
+
+	printf("result: %d\n", result);
+
+	return 0;
+}
