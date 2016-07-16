@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+
+struct my_list {
+	int 		data;
+	struct my_list *next;
+};
+
+int create_list(struct my_list **head)
+{
+	int ret = 0;
+	int len = -1;
+	int i = 0;
+	struct my_list *node = NULL;
+
+	if (*head) {
+		printf("**ERROR**: Inavalid case. HEAD is not NULL.\n");
+		ret = -EINVAL;
+		goto error;
+	}
+
+	printf("\nEnter the length of the list to be created: ");
+	scanf("%d", &len);
+	if (len <= 0) {
+		printf("**ERROR**: Invalid length.\n");
+		ret = -EINVAL;
+		goto error;
+	}
+
+	for (i = 0; i < len; i++) {
+		if (*head) {
+			node->next = (struct my_list *) malloc(
+							sizeof(struct my_list));
+			if (!node) {
+				printf("**ERROR**: Failed to allocate memory"
+					"for list node.\n");
+				ret = -ENOMEM;
+				goto error;
+			}
+			node = node->next;
+			printf("Value of node at poisition %d: ", (i + 1));
+			scanf("%d", &(node->data));
+			node->next = NULL;
+		} else {
+			*head = malloc(sizeof(struct my_list));
+        		if (!(*head)) {
+	                	printf("**ERROR**: Failed to allocate memory"
+					" for head.\n");
+	        	        ret = -ENOMEM;
+				goto error;
+        		}
+			node = *head;
+			printf("\nValue of node at position %d: ", (i + 1));
+			scanf("%d", &(node->data));
+			node->next = NULL;
+		}
+	}
+
+error:
+	return ret;
+}
+
+void print_list(struct my_list *h)
+{
+	int pos = 1;
+	while (h) {
+		printf("Data value at node position %d: %d\n", pos++, h->data);
+		h = h->next;
+	}
+}
+
+int main(void)
+{
+	int ret = 0;
+	int choice = -1;
+	struct my_list *head = NULL;
+
+	while (1) {
+		choice = -1;
+		printf("\nEnter your choice from below menu:\n");
+		printf("1. Create a list.\n");
+		printf("2. Add a node.\n");
+		printf("3. Print the list.\n");
+		printf("4. Delete a node.\n");
+		printf("5. Delete this list.\n");
+		printf("6. Exit\n");
+		printf("\nYour choice: ");
+		scanf("%d", &choice);
+		switch (choice) {
+		case 1:
+			ret = create_list(&head);
+			if (ret) {
+				printf("**ERROR**: Failed to create"
+					" the list.\n");
+				exit(EXIT_FAILURE);
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+			print_list(head);
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			goto out;
+		default:
+			printf("Invalid choice.\n");
+			break;
+		}
+	}
+
+out:
+	return ret;
+}
